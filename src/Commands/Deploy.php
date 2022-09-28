@@ -16,7 +16,7 @@ class Deploy extends EnvironmentAwareCommand
      *
      * @var string
      */
-    protected $signature = 'sidecar:deploy {--activate} {--pre-warm}';
+    protected $signature = 'sidecar:deploy {--activate} {--pre-warm} {--functions}';
 
     /**
      * The console command description.
@@ -34,7 +34,7 @@ class Deploy extends EnvironmentAwareCommand
         $this->overrideEnvironment();
         Sidecar::addCommandLogger($this);
 
-        $deployment = Deployment::make()->deploy();
+        $deployment = Deployment::make($this->options('functions')->deploy();
 
         if ($this->option('activate')) {
             $deployment->activate($this->option('pre-warm'));
