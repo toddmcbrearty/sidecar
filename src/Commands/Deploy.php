@@ -34,7 +34,7 @@ class Deploy extends EnvironmentAwareCommand
         $this->overrideEnvironment();
         Sidecar::addCommandLogger($this);
 
-        $deployment = Deployment::make($this->options('functions')->deploy();
+        $deployment = Deployment::make($this->options('functions'))->deploy();
 
         if ($this->option('activate')) {
             $deployment->activate($this->option('pre-warm'));
